@@ -55,6 +55,7 @@ body::before{
   mask-image:linear-gradient(to bottom,black,transparent 86%);
 }
 a{color:inherit}
+img{max-width:100%}
 :focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
 h1,h2,h3,h4,p{margin-top:0;text-wrap:balance}
 h1{font-size:3.4rem;line-height:.98;font-weight:700}
@@ -195,7 +196,7 @@ figcaption{margin-top:14px;color:var(--muted);font-size:.87rem;line-height:1.55}
 .course-grid.three .span-all{grid-column:1 / -1}
 
 /* ---------- perfiles ---------- */
-.profile-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.profile-table{width:100%;min-width:620px;border-collapse:collapse;font-size:.9rem}
 .profile-table th,.profile-table td{padding:13px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
 .profile-table thead th{color:var(--muted);font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
 .profile-table tbody td:first-child{font-weight:800;width:30%}
@@ -241,14 +242,55 @@ figcaption{margin-top:14px;color:var(--muted);font-size:.87rem;line-height:1.55}
 footer{padding:40px 0 56px;border-top:1px solid var(--line);margin-top:56px}
 footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
 
+/* ---------- responsive ---------- */
+@media (max-width:1140px){
+  .course-grid.three,.diff-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lifecycle{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
 @media (max-width:960px){
   .hero-inner,.split,.admit,.contact{grid-template-columns:1fr}
-  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero h1{font-size:2.5rem}
+  .section-heading h2{font-size:2rem}
+  .contact{padding:26px;gap:24px}
+  .contact h2{font-size:1.7rem}
+  .section{padding:56px 0}
+}
+@media (max-width:860px){
+  .site-header{position:static;flex-wrap:wrap;gap:12px;padding:14px 0}
+  .head-nav{
+    display:flex;order:2;width:100%;flex-wrap:nowrap;gap:2px;
+    overflow-x:auto;overscroll-behavior-x:contain;
+    scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .head-nav::-webkit-scrollbar{display:none}
+  .head-nav a{flex:none;white-space:nowrap;padding:8px 10px}
+}
+@media (max-width:760px){
   .course-grid,.course-grid.three,.diff-grid{grid-template-columns:1fr}
   .lifecycle{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .hero h1{font-size:2.3rem}
-  .section-heading h2{font-size:1.85rem}
-  .section{padding:52px 0}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .figure-scroll{padding:12px}
+}
+@media (max-width:560px){
+  .wrap,.section,.site-header{width:min(100% - 24px,var(--max))}
+  .hero h1{font-size:2rem}
+  .section-heading h2,.contact h2{font-size:1.6rem}
+  .sub-h{font-size:1.14rem}
+  .hero .lede{font-size:1.02rem}
+  .quote p{font-size:.98rem}
+  .section{padding:44px 0}
+  .brand{font-size:.84rem;gap:8px}
+  .brand .mark{width:32px;height:32px;font-size:.64rem}
+  .panel,.contact,.status-card{padding:18px}
+  .course,.diff{padding:17px}
+  .quote{padding:16px 18px}
+  .lifecycle{grid-template-columns:1fr}
+  .org{flex-wrap:wrap;gap:12px}
+  .org-div{display:none}
+  .table-scroll{padding:6px 12px}
+  .status-row{font-size:.84rem}
+  .status-row dd{font-size:.78rem}
+  footer{margin-top:40px;padding:32px 0 44px}
 }
 </style>
 </head>
@@ -265,7 +307,6 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
     <a href="#plan">Plan de estudios</a>
     <a href="#software-ia">Software + IA</a>
     <a href="#perfiles">Perfiles</a>
-    <a href="#diferenciador">Por qué esta</a>
     <a href="#contacto">Contacto</a>
   </nav>
 </header>
