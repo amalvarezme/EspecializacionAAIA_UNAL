@@ -167,6 +167,15 @@ figure{margin:0}
 }
 .figure-scroll svg{display:block;width:100%;min-width:920px;height:auto}
 figcaption{margin-top:14px;color:var(--muted);font-size:.87rem;line-height:1.55}
+figcaption .hint{display:block;margin-top:7px;color:var(--amber);font-weight:700;font-size:.82rem}
+@media (hover:hover){
+  .plan .r-model,.plan .r-exec,.plan .n-model,.plan .n-exec{transition:opacity .22s ease}
+  .plan .s2,.plan .s3,.plan .s4{transition:stroke-width .22s ease}
+  .plan:has(.n-model:hover) .r-exec,.plan:has(.n-model:hover) .n-exec,
+  .plan:has(.n-exec:hover)  .r-model,.plan:has(.n-exec:hover)  .n-model{opacity:.2}
+  .plan:has(.n-model:hover) .s2,.plan:has(.n-model:hover) .s3,
+  .plan:has(.n-exec:hover)  .s4{stroke-width:3}
+}
 
 /* ---------- asignaturas ---------- */
 .course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
@@ -193,7 +202,26 @@ figcaption{margin-top:14px;color:var(--muted);font-size:.87rem;line-height:1.55}
 .c-cyan{--accent:var(--cyan);--accent-soft:var(--cyan-soft)}
 .c-amber{--accent:var(--amber);--accent-soft:var(--amber-soft)}
 .c-coral{--accent:var(--coral);--accent-soft:var(--coral-soft)}
-.course-grid.three .span-all{grid-column:1 / -1}
+.course-list{display:grid;gap:10px}
+.open-hint{display:block;margin-top:10px;color:var(--amber);font-weight:800;font-size:.85rem}
+details.course{display:block;padding:0;gap:0;overflow:hidden}
+details.course > summary{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:16px 19px;cursor:pointer;list-style:none;
+  transition:background .18s ease;
+}
+details.course > summary::-webkit-details-marker{display:none}
+details.course > summary::after{
+  flex:none;width:9px;height:9px;margin-right:3px;content:"";
+  border-right:2px solid var(--accent,var(--green));border-bottom:2px solid var(--accent,var(--green));
+  transform:translateY(-3px) rotate(45deg);transition:transform .22s ease;
+}
+details.course[open] > summary::after{transform:translateY(2px) rotate(-135deg)}
+details.course > summary:hover{background:var(--surface-2)}
+details.course > summary h3{flex:1 1 auto;font-size:1.02rem}
+.course-body{display:flex;flex-direction:column;gap:11px;padding:0 19px 19px}
+.course-body > p:first-child{padding-top:2px;border-top:1px solid var(--line)}
+details.course .role{margin:0}
 
 /* ---------- perfiles ---------- */
 .profile-table{width:100%;min-width:620px;border-collapse:collapse;font-size:.9rem}
@@ -239,12 +267,35 @@ figcaption{margin-top:14px;color:var(--muted);font-size:.87rem;line-height:1.55}
 .contact-list a{color:var(--cyan);font-weight:700;text-decoration:none;word-break:break-word}
 .contact-list a:hover{text-decoration:underline}
 
+/* ---------- lectura y movimiento ---------- */
+section[id]{scroll-margin-top:86px}
+.head-nav a.is-active{color:var(--text);border-color:var(--line);background:var(--surface-soft)}
+.progress{
+  position:fixed;top:0;left:0;z-index:40;width:100%;height:3px;
+  transform:scaleX(0);transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--green),var(--cyan));
+}
+@supports (animation-timeline:scroll()){
+  .progress{animation:progress linear both;animation-timeline:scroll(root)}
+  @keyframes progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+}
+@media (prefers-reduced-motion:no-preference){
+  @supports (animation-timeline:view()){
+    .section-heading,.fact,.status-card,.panel,.course,.diff,.stage,.quote,figure,.contact{
+      animation:enter linear both;animation-timeline:view();animation-range:entry 0% entry 38%;
+    }
+    @keyframes enter{from{opacity:.35;transform:translateY(14px)}to{opacity:1;transform:none}}
+  }
+}
+@media print{*{animation:none!important;opacity:1!important;transform:none!important}
+  details.course > summary::after{display:none}}
+
 footer{padding:40px 0 56px;border-top:1px solid var(--line);margin-top:56px}
 footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
 
 /* ---------- responsive ---------- */
 @media (max-width:1140px){
-  .course-grid.three,.diff-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .diff-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .lifecycle{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media (max-width:960px){
@@ -266,7 +317,7 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
   .head-nav a{flex:none;white-space:nowrap;padding:8px 10px}
 }
 @media (max-width:760px){
-  .course-grid,.course-grid.three,.diff-grid{grid-template-columns:1fr}
+  .course-grid,.diff-grid{grid-template-columns:1fr}
   .lifecycle{grid-template-columns:repeat(2,minmax(0,1fr))}
   .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
   .figure-scroll{padding:12px}
@@ -283,6 +334,9 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
   .brand .mark{width:32px;height:32px;font-size:.64rem}
   .panel,.contact,.status-card{padding:18px}
   .course,.diff{padding:17px}
+  details.course{padding:0}
+  details.course > summary{padding:14px 16px}
+  .course-body{padding:0 16px 16px}
   .quote{padding:16px 18px}
   .lifecycle{grid-template-columns:1fr}
   .org{flex-wrap:wrap;gap:12px}
@@ -295,6 +349,7 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
 </style>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 <header class="site-header">
   <a class="brand" href="#top">
     <span class="mark">AA<br>IA</span>
@@ -455,7 +510,7 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
 
   <figure>
     <div class="figure-scroll">
-      <svg viewBox="0 0 1280 480" role="img"
+      <svg class="plan" viewBox="0 0 1280 480" role="img"
            aria-label="Diagrama de flujo del plan de estudios: cuatro asignaturas obligatorias encadenadas desde ingeniería de datos hasta despliegue de modelos y agentes, con las asignaturas elegibles alimentando las etapas de modelado y de despliegue, y explicabilidad y ética como criterio transversal.">
         <defs>
           <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -485,10 +540,10 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
 
         <!-- núcleo obligatorio -->
         <g fill="var(--green-soft)" stroke="var(--green)" stroke-width="1.5">
-          <rect x="20"  y="90" width="200" height="104" rx="9"/>
-          <rect x="300" y="90" width="200" height="104" rx="9"/>
-          <rect x="580" y="90" width="200" height="104" rx="9"/>
-          <rect x="860" y="90" width="200" height="104" rx="9"/>
+          <rect class="s1" x="20"  y="90" width="200" height="104" rx="9"/>
+          <rect class="s2" x="300" y="90" width="200" height="104" rx="9"/>
+          <rect class="s3" x="580" y="90" width="200" height="104" rx="9"/>
+          <rect class="s4" x="860" y="90" width="200" height="104" rx="9"/>
         </g>
         <g font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="var(--green)">
           <text x="34" y="112">01 · 4C</text>
@@ -541,6 +596,7 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
               letter-spacing="1.1" fill="var(--amber)">COMPONENTE ELEGIBLE &#183; 12C &#8212; SE CURSAN 4 DE 7</text>
 
         <!-- colector hacia el modelado -->
+        <g class="r-model">
         <g stroke="var(--amber)" stroke-width="1.4" stroke-dasharray="5 4" fill="none">
           <line x1="118" y1="368" x2="118" y2="330"/>
           <line x1="327" y1="368" x2="327" y2="330"/>
@@ -552,8 +608,10 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
         </g>
         <text x="222" y="322" font-family="Inter,sans-serif" font-size="11.5" fill="var(--amber)" text-anchor="middle">
           profundizan el modelado</text>
+        </g>
 
         <!-- ruta de ejecucion hacia el despliegue -->
+        <g class="r-exec">
         <g stroke="var(--amber)" stroke-width="1.4" stroke-dasharray="5 4" fill="none">
           <line x1="954"  y1="368" x2="954"  y2="250"/>
           <line x1="1163" y1="368" x2="1163" y2="250"/>
@@ -564,17 +622,20 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
           <text x="1058" y="282">c&#243;mo se construye</text>
           <text x="1058" y="296">y d&#243;nde se ejecuta</text>
         </g>
+        </g>
 
         <!-- cajas elegibles -->
-        <g fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="1.2">
+        <g class="n-model" fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="1.2">
           <rect x="20"   y="368" width="195" height="72" rx="8"/>
           <rect x="229"  y="368" width="195" height="72" rx="8"/>
           <rect x="438"  y="368" width="195" height="72" rx="8"/>
           <rect x="647"  y="368" width="195" height="72" rx="8"/>
+        </g>
+        <g class="n-exec" fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="1.2">
           <rect x="856"  y="368" width="195" height="72" rx="8"/>
           <rect x="1065" y="368" width="195" height="72" rx="8"/>
         </g>
-        <g font-family="Inter,sans-serif" font-size="11.5" font-weight="700" fill="currentColor" text-anchor="middle">
+        <g pointer-events="none" font-family="Inter,sans-serif" font-size="11.5" font-weight="700" fill="currentColor" text-anchor="middle">
           <text x="118"  y="394">Fundamentos en</text><text x="118" y="409">Visi&#243;n por</text><text x="118" y="424">Computador</text>
           <text x="327"  y="400">Aprendizaje</text><text x="327" y="415">por Refuerzo</text>
           <text x="536"  y="402">F&#237;sica e IA</text>
@@ -582,7 +643,7 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
           <text x="954"  y="402">IoT Cognitivo</text>
           <text x="1163" y="394">Desarrollo de</text><text x="1163" y="409">Software con IA</text>
         </g>
-        <g font-family="Inter,sans-serif" font-size="9.5" fill="var(--muted)" text-anchor="middle">
+        <g pointer-events="none" font-family="Inter,sans-serif" font-size="9.5" fill="var(--muted)" text-anchor="middle">
           <text x="536"  y="419">PINNs</text>
           <text x="954"  y="419">embebidos &#183; SDR</text>
           <text x="1163" y="425">SDD &#183; TDD &#183; agentes</text>
@@ -595,7 +656,8 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
       la etapa de despliegue —dónde se ejecuta y cómo se construye—, y <b>Explicabilidad y Ética</b>
       se aplica sobre las cuatro.
       Distribución por semestre: 3 obligatorias + 1 elegible en el primero; 1 obligatoria + 3
-      elegibles en el segundo.</figcaption>
+      elegibles en el segundo.
+      <span class="hint">Pase el cursor sobre una elegible para ver a qué etapa alimenta.</span></figcaption>
   </figure>
 </section>
 
@@ -654,77 +716,86 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
     <h2>Siete caminos, cuatro elecciones</h2>
     <p>Cada elegible vale 3 créditos y se cursan cuatro. La oferta de cada semestre la concierta el
       Comité Asesor del posgrado; también es posible cursar elegibles de otros posgrados de la
-      Universidad Nacional, con orientación del tutor, si son coherentes con la trayectoria de formación.</p>
+      Universidad Nacional, con orientación del tutor, si son coherentes con la trayectoria de formación.
+      <b class="open-hint">Abra cada una para ver herramientas y perfil profesional.</b></p>
   </div>
 
-  <div class="course-grid three">
-    <article class="course c-amber">
-      <div class="course-top"><h3>Principios de Desarrollo de Software con Inteligencia Artificial</h3><span class="credits">3C</span></div>
-      <p>Ciclo de vida del software cuando buena parte del código lo escribe un agente:
-        especificación como fuente de verdad (<b>SDD</b>), pruebas como contrato ejecutable
-        (<b>TDD</b>), metodologías agénticas con ingeniería de contexto y MCP, y verificación
-        con <i>evals</i> y revisión asistida.</p>
-      <p class="tools">Git · agentes de codificación · pruebas automatizadas · CI/CD · MCP</p>
-      <p class="role"><b>AI-native software engineer.</b> Es lo que separa a quien dirige a un
-        agente de quien solo le pide código.</p>
-    </article>
-
-    <article class="course c-amber">
-      <div class="course-top"><h3>IoT Cognitivo</h3><span class="credits">3C</span></div>
-      <p>IoT e inteligencia cognitiva, aprendizaje automático sobre dispositivos y entornos
-        distribuidos, radio cognitiva y gestión dinámica del espectro en contextos industriales,
-        energéticos y urbanos.</p>
-      <p class="tools">dispositivos embebidos · SDR · PyTorch</p>
-      <p class="role"><b>Edge AI / sistemas ciberfísicos.</b> Donde la IA deja de vivir en un
-        servidor y pasa a un aparato con restricciones reales.</p>
-    </article>
-
-    <article class="course c-amber">
-      <div class="course-top"><h3>Fundamentos en Visión por Computador</h3><span class="credits">3C</span></div>
-      <p>Desde el principio físico del sensor y el modelamiento matemático hasta las redes
-        convolucionales, los mecanismos de atención y los <i>visual transformers</i>, cerrando con
-        despliegue y proyecto aplicado.</p>
-      <p class="tools">Python · Roboflow · ExecuTorch · LiteRT (antes TensorFlow Lite) · Docker · Colab / Kaggle</p>
-      <p class="role"><b>Computer Vision Engineer.</b> Incluye la parte que suele faltar: empaquetar
-        y desplegar el modelo, no solo entrenarlo.</p>
-    </article>
-
-    <article class="course c-amber">
-      <div class="course-top"><h3>Aprendizaje por Refuerzo</h3><span class="credits">3C</span></div>
-      <p>Agentes, entornos, recompensas y políticas; métodos <i>value-based</i> y <i>policy-based</i>;
-        Deep Q-Learning y Actor-Critic; aplicaciones en robótica, juegos y optimización de recursos.</p>
-      <p class="tools">Gym · PyTorch / TensorFlow</p>
-      <p class="role"><b>Control autónomo y optimización.</b> La base formal de los agentes que
-        deciden secuencias de acciones, no respuestas aisladas.</p>
-    </article>
-
-    <article class="course c-amber">
-      <div class="course-top"><h3>Física e IA</h3><span class="credits">3C</span></div>
-      <p>Simulación numérica de sistemas físicos, aprendizaje automático sobre datos experimentales
-        y de simulación, y <b>redes informadas por física (PINNs)</b>, con aplicaciones en
-        materiales, energía y astrofísica.</p>
-      <p class="tools">Python · Jupyter / Colab</p>
-      <p class="role"><b>Scientific ML.</b> Modelos que respetan las leyes del dominio en vez de
-        aprenderlas por fuerza bruta — clave en energía e industria.</p>
-    </article>
-
-    <article class="course c-amber">
-      <div class="course-top"><h3>Principios en Aprendizaje de Máquina Cuántico</h3><span class="credits">3C</span></div>
-      <p>Qubits, puertas y medición; codificación de datos clásicos en estados cuánticos; circuitos
-        para clasificación y regresión; modelos híbridos cuántico-clásicos y sus límites reales.</p>
-      <p class="tools">Qiskit · PennyLane</p>
-      <p class="role"><b>Frontera.</b> No la hay en ninguna otra especialización en IA del país.</p>
-    </article>
-
-    <article class="course c-coral span-all">
-      <div class="course-top"><h3>Explicabilidad y Ética en IA</h3><span class="credits">3C</span></div>
-      <p>Interpretabilidad y explicabilidad de modelos con LIME, SHAP y <i>saliency maps</i>;
-        sesgos algorítmicos, equidad y transparencia; marcos regulatorios y estándares
-        internacionales; responsabilidad social en contextos sensibles.</p>
-      <p class="role"><b>AI Governance.</b> Dejó de ser un tema de comité: es cada vez más un
-        requisito contractual para desplegar IA en banca, salud y sector público. Por eso en el
-        diagrama atraviesa las cuatro etapas en lugar de ocupar un casillero.</p>
-    </article>
+  <div class="course-list">
+    <details class="course c-amber" open>
+      <summary class="course-top"><h3>Principios de Desarrollo de Software con Inteligencia Artificial</h3><span class="credits">3C</span></summary>
+      <div class="course-body">
+        <p>Ciclo de vida del software cuando buena parte del código lo escribe un agente:
+          especificación como fuente de verdad (<b>SDD</b>), pruebas como contrato ejecutable
+          (<b>TDD</b>), metodologías agénticas con ingeniería de contexto y MCP, y verificación
+          con <i>evals</i> y revisión asistida.</p>
+        <p class="tools">Git · agentes de codificación · pruebas automatizadas · CI/CD · MCP</p>
+        <p class="role"><b>AI-native software engineer.</b> Es lo que separa a quien dirige a un
+          agente de quien solo le pide código.</p>
+      </div>
+    </details>
+    <details class="course c-amber">
+      <summary class="course-top"><h3>IoT Cognitivo</h3><span class="credits">3C</span></summary>
+      <div class="course-body">
+        <p>IoT e inteligencia cognitiva, aprendizaje automático sobre dispositivos y entornos
+          distribuidos, radio cognitiva y gestión dinámica del espectro en contextos industriales,
+          energéticos y urbanos.</p>
+        <p class="tools">dispositivos embebidos · SDR · PyTorch</p>
+        <p class="role"><b>Edge AI / sistemas ciberfísicos.</b> Donde la IA deja de vivir en un
+          servidor y pasa a un aparato con restricciones reales.</p>
+      </div>
+    </details>
+    <details class="course c-amber">
+      <summary class="course-top"><h3>Fundamentos en Visión por Computador</h3><span class="credits">3C</span></summary>
+      <div class="course-body">
+        <p>Desde el principio físico del sensor y el modelamiento matemático hasta las redes
+          convolucionales, los mecanismos de atención y los <i>visual transformers</i>, cerrando con
+          despliegue y proyecto aplicado.</p>
+        <p class="tools">Python · Roboflow · ExecuTorch · LiteRT (antes TensorFlow Lite) · Docker · Colab / Kaggle</p>
+        <p class="role"><b>Computer Vision Engineer.</b> Incluye la parte que suele faltar: empaquetar
+          y desplegar el modelo, no solo entrenarlo.</p>
+      </div>
+    </details>
+    <details class="course c-amber">
+      <summary class="course-top"><h3>Aprendizaje por Refuerzo</h3><span class="credits">3C</span></summary>
+      <div class="course-body">
+        <p>Agentes, entornos, recompensas y políticas; métodos <i>value-based</i> y <i>policy-based</i>;
+          Deep Q-Learning y Actor-Critic; aplicaciones en robótica, juegos y optimización de recursos.</p>
+        <p class="tools">Gym · PyTorch / TensorFlow</p>
+        <p class="role"><b>Control autónomo y optimización.</b> La base formal de los agentes que
+          deciden secuencias de acciones, no respuestas aisladas.</p>
+      </div>
+    </details>
+    <details class="course c-amber">
+      <summary class="course-top"><h3>Física e IA</h3><span class="credits">3C</span></summary>
+      <div class="course-body">
+        <p>Simulación numérica de sistemas físicos, aprendizaje automático sobre datos experimentales
+          y de simulación, y <b>redes informadas por física (PINNs)</b>, con aplicaciones en
+          materiales, energía y astrofísica.</p>
+        <p class="tools">Python · Jupyter / Colab</p>
+        <p class="role"><b>Scientific ML.</b> Modelos que respetan las leyes del dominio en vez de
+          aprenderlas por fuerza bruta — clave en energía e industria.</p>
+      </div>
+    </details>
+    <details class="course c-amber">
+      <summary class="course-top"><h3>Principios en Aprendizaje de Máquina Cuántico</h3><span class="credits">3C</span></summary>
+      <div class="course-body">
+        <p>Qubits, puertas y medición; codificación de datos clásicos en estados cuánticos; circuitos
+          para clasificación y regresión; modelos híbridos cuántico-clásicos y sus límites reales.</p>
+        <p class="tools">Qiskit · PennyLane</p>
+        <p class="role"><b>Frontera.</b> No la hay en ninguna otra especialización en IA del país.</p>
+      </div>
+    </details>
+    <details class="course c-coral">
+      <summary class="course-top"><h3>Explicabilidad y Ética en IA</h3><span class="credits">3C</span></summary>
+      <div class="course-body">
+        <p>Interpretabilidad y explicabilidad de modelos con LIME, SHAP y <i>saliency maps</i>;
+          sesgos algorítmicos, equidad y transparencia; marcos regulatorios y estándares
+          internacionales; responsabilidad social en contextos sensibles.</p>
+        <p class="role"><b>AI Governance.</b> Dejó de ser un tema de comité: es cada vez más un
+          requisito contractual para desplegar IA en banca, salud y sector público. Por eso en el
+          diagrama atraviesa las cuatro etapas en lugar de ocupar un casillero.</p>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -895,15 +966,14 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
     </article>
     <article class="panel">
       <h3>¿Por qué los fundamentos importan más, no menos?</h3>
-      <p>Quien no entiende la pila completa no puede corregir a un agente que toma malas decisiones
-        de latencia, disponibilidad, consistencia, confiabilidad, mantenibilidad, simplicidad o
-        costo — porque ni siquiera ve que ahí había una decisión.</p>
-      <p>Esa es la apuesta del programa: fundamentos matemáticos, estadísticos y de datos explícitos
-        en el núcleo obligatorio, para que la velocidad que da el agente se convierta en criterio y
-        no en deuda técnica.</p>
-      <p>La práctica concreta se trabaja en la elegible <b>Principios de Desarrollo de Software con
-        Inteligencia Artificial</b>: ciclo de vida asistido por IA, especificación como fuente de
-        verdad (SDD), pruebas como contrato ejecutable (TDD) y orquestación de agentes.</p>
+      <ul class="ticklist">
+        <li>Quien no ve la compensación no puede corregirla: latencia, costo, consistencia y
+          mantenibilidad se deciden aunque nadie las nombre.</li>
+        <li>El núcleo obligatorio deja explícitos los fundamentos matemáticos, estadísticos y de datos.</li>
+        <li>Así la velocidad que da el agente se vuelve criterio, no deuda técnica.</li>
+        <li>La práctica concreta va en la elegible <b>Principios de Desarrollo de Software con IA</b>:
+          SDD, TDD y orquestación de agentes.</li>
+      </ul>
     </article>
   </div>
 </section>
@@ -1034,5 +1104,35 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
 </footer>
 
 </main>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.head-nav a[href^="#"]'));
+  if (!links.length) return;
+  var items = [];
+  links.forEach(function(a){
+    var el = document.querySelector(a.getAttribute('href'));
+    if (el) items.push({ a: a, el: el });
+  });
+  if (!items.length) return;
+
+  var pending = 0;
+  function update(){
+    pending = 0;
+    var line = window.innerHeight * 0.35, current = null;
+    items.forEach(function(it){
+      if (it.el.getBoundingClientRect().top <= line) current = it;
+    });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) {
+      current = items[items.length - 1];
+    }
+    items.forEach(function(it){ it.a.classList.toggle('is-active', it === current); });
+  }
+  function schedule(){ if (!pending) pending = requestAnimationFrame(update); }
+  addEventListener('scroll', schedule, { passive: true });
+  addEventListener('resize', schedule);
+  update();
+})();
+</script>
 </body>
 </html>
