@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Especialización en Aprendizaje Automático mediante IA | UNAL Manizales</title>
+<meta name="description" content="Especialización en Aprendizaje Automático mediante Inteligencia Artificial de la Universidad Nacional de Colombia, Sede Manizales. SNIES 118852. Dos semestres, 28 créditos. Plan de estudios, admisión, costos y salida profesional hacia perfiles de AI engineering y forward deployed engineering.">
+<meta name="author" content="Universidad Nacional de Colombia — Sede Manizales">
+<link rel="canonical" href="https://amalvarezme.github.io/EspecializacionAAIA_UNAL/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308784d'/%3E%3Ctext x='32' y='27' font-family='Helvetica,Arial,sans-serif' font-size='20' font-weight='bold' fill='white' text-anchor='middle'%3EAA%3C/text%3E%3Ctext x='32' y='49' font-family='Helvetica,Arial,sans-serif' font-size='20' font-weight='bold' fill='white' text-anchor='middle'%3EIA%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<meta property="og:site_name" content="UNAL Sede Manizales — Facultad de Ingeniería y Arquitectura">
+<meta property="og:title" content="Especialización en Aprendizaje Automático mediante IA">
+<meta property="og:description" content="Especialización en Aprendizaje Automático mediante Inteligencia Artificial de la Universidad Nacional de Colombia, Sede Manizales. SNIES 118852. Dos semestres, 28 créditos. Plan de estudios, admisión, costos y salida profesional hacia perfiles de AI engineering y forward deployed engineering.">
+<meta property="og:url" content="https://amalvarezme.github.io/EspecializacionAAIA_UNAL/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Especialización en Aprendizaje Automático mediante IA">
+<meta name="twitter:description" content="Especialización en Aprendizaje Automático mediante Inteligencia Artificial de la Universidad Nacional de Colombia, Sede Manizales. SNIES 118852. Dos semestres, 28 créditos. Plan de estudios, admisión, costos y salida profesional hacia perfiles de AI engineering y forward deployed engineering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme:light dark;
+  --bg:#f4f7f3; --surface:#ffffff; --surface-2:#edf3ef; --surface-soft:rgba(255,255,255,.78);
+  --line:rgba(20,32,28,.14); --line-strong:rgba(20,32,28,.24);
+  --text:#14201c; --body:#26342f; --muted:#5f6b65;
+  --green:#08784d; --cyan:#007a9f; --amber:#a86e00; --coral:#bf4d35;
+  --on-green:#ffffff;
+  --green-soft:rgba(8,120,77,.10); --cyan-soft:rgba(0,122,159,.10);
+  --amber-soft:rgba(168,110,0,.10); --coral-soft:rgba(191,77,53,.10);
+  --shadow:0 20px 50px rgba(22,38,32,.10); --shadow-sm:0 14px 38px rgba(22,38,32,.07);
+  --grid-line:rgba(20,32,28,.055);
+  --max:1180px;
+  --sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1613; --surface:#16211c; --surface-2:#1a2620; --surface-soft:rgba(28,42,35,.72);
+    --line:rgba(214,232,223,.16); --line-strong:rgba(214,232,223,.30);
+    --text:#e8f1ec; --body:#c6d4cd; --muted:#93a49b;
+    --green:#4cc38c; --cyan:#4bb6d8; --amber:#d9a445; --coral:#ea8a70;
+    --on-green:#08201a;
+    --green-soft:rgba(76,195,140,.14); --cyan-soft:rgba(75,182,216,.14);
+    --amber-soft:rgba(217,164,69,.14); --coral-soft:rgba(234,138,112,.14);
+    --shadow:0 20px 50px rgba(0,0,0,.44); --shadow-sm:0 14px 38px rgba(0,0,0,.32);
+    --grid-line:rgba(214,232,223,.05);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1613; --surface:#16211c; --surface-2:#1a2620; --surface-soft:rgba(28,42,35,.72);
+  --line:rgba(214,232,223,.16); --line-strong:rgba(214,232,223,.30);
+  --text:#e8f1ec; --body:#c6d4cd; --muted:#93a49b;
+  --green:#4cc38c; --cyan:#4bb6d8; --amber:#d9a445; --coral:#ea8a70;
+  --on-green:#08201a;
+    --green-soft:rgba(76,195,140,.14); --cyan-soft:rgba(75,182,216,.14);
+  --amber-soft:rgba(217,164,69,.14); --coral-soft:rgba(234,138,112,.14);
+  --shadow:0 20px 50px rgba(0,0,0,.44); --shadow-sm:0 14px 38px rgba(0,0,0,.32);
+  --grid-line:rgba(214,232,223,.05);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0;font-family:var(--sans);color:var(--text);
+  background:
+    linear-gradient(180deg,var(--green-soft),transparent 560px),
+    linear-gradient(135deg,var(--cyan-soft),transparent 460px),
+    var(--bg);
+}
+body::before{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;content:"";
+  background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:52px 52px;
+  -webkit-mask-image:linear-gradient(to bottom,black,transparent 86%);
+  mask-image:linear-gradient(to bottom,black,transparent 86%);
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+h1,h2,h3,h4,p{margin-top:0;text-wrap:balance}
+p{color:var(--body);line-height:1.62}
+
+/* ---------- estructura ---------- */
+.wrap{width:min(100% - 32px,var(--max));margin:0 auto}
+.section{width:min(100% - 32px,var(--max));margin:0 auto;padding:74px 0}
+.section + .section{padding-top:14px}
+.eyebrow{margin:0 0 12px;color:var(--green);font-size:.76rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.section-heading{max-width:760px;margin-bottom:30px}
+.section-heading h2{margin-bottom:12px;font-size:2.35rem;line-height:1.06;letter-spacing:-.02em}
+.section-heading p{margin-bottom:0;font-size:1.02rem}
+
+/* ---------- header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
+  gap:18px;width:min(100% - 32px,var(--max));margin:0 auto;padding:16px 0;
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;text-decoration:none;font-size:.95rem;letter-spacing:-.01em}
+.brand .mark{
+  display:grid;place-items:center;width:38px;height:38px;border-radius:9px;
+  background:linear-gradient(135deg,var(--green),var(--cyan));color:#fff;
+  font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:-.04em;
+}
+.brand span small{display:block;color:var(--muted);font-size:.7rem;font-weight:700;letter-spacing:.02em}
+.head-nav{display:flex;gap:4px;flex-wrap:wrap}
+.head-nav a{
+  padding:9px 11px;border:1px solid transparent;border-radius:8px;color:var(--muted);
+  text-decoration:none;font-size:.82rem;font-weight:700;
+  transition:color .18s ease,border-color .18s ease,background .18s ease;
+}
+.head-nav a:hover{color:var(--text);border-color:var(--line);background:var(--surface-soft)}
+@media (max-width:860px){.head-nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding-top:34px;padding-bottom:16px}
+.hero-inner{display:grid;grid-template-columns:1.28fr .72fr;gap:42px;align-items:start}
+.hero h1{max-width:15ch;margin-bottom:18px;font-size:3.7rem;line-height:.99;letter-spacing:-.035em}
+.hero .lede{font-size:1.12rem;line-height:1.58;max-width:56ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{
+  display:inline-flex;min-height:46px;align-items:center;justify-content:center;gap:8px;
+  padding:12px 18px;border-radius:9px;font-weight:800;font-size:.92rem;text-decoration:none;
+  transition:transform .18s ease,background .18s ease,border-color .18s ease;
+}
+.btn-primary{border:1px solid transparent;background:var(--green);color:var(--on-green)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--line-strong);background:var(--surface-soft);color:var(--text)}
+.btn-ghost:hover{border-color:var(--green);transform:translateY(-1px)}
+
+.status-card{
+  padding:22px;border:1px solid var(--line);border-radius:10px;
+  background:var(--surface-soft);box-shadow:var(--shadow-sm);
+}
+.status-card h3{margin-bottom:14px;font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--green)}
+.status-row{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+.status-row:last-of-type{border-bottom:0}
+.status-row dt{color:var(--muted);font-weight:600}
+.status-row dd{margin:0;font-weight:800;text-align:right;font-family:var(--mono);font-size:.84rem;font-variant-numeric:tabular-nums}
+.status-note{margin:14px 0 0;padding:11px 12px;border-radius:8px;background:var(--coral-soft);color:var(--body);font-size:.8rem;line-height:1.5}
+.status-note strong{color:var(--coral)}
+
+/* ---------- ficha ---------- */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:30px}
+.fact{padding:16px 17px;border:1px solid var(--line);border-radius:9px;background:var(--surface-soft)}
+.fact dt{margin-bottom:6px;color:var(--muted);font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+.fact dd{margin:0;font-size:1.02rem;font-weight:800;letter-spacing:-.01em}
+.fact dd .u{font-family:var(--mono);font-size:.8rem;font-weight:500;color:var(--muted);margin-left:3px}
+
+/* ---------- prosa en dos columnas ---------- */
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.panel{padding:24px;border:1px solid var(--line);border-radius:10px;background:var(--surface-soft);box-shadow:var(--shadow-sm)}
+.panel h3{margin-bottom:12px;font-size:1.14rem;letter-spacing:-.01em}
+.panel p:last-child,.panel ul:last-child{margin-bottom:0}
+.ticklist{display:grid;gap:9px;margin:0;padding:0;list-style:none}
+.ticklist li{position:relative;padding-left:21px;color:var(--body);font-size:.93rem;line-height:1.5}
+.ticklist li::before{position:absolute;top:.58em;left:0;width:9px;height:9px;border-radius:999px;background:linear-gradient(135deg,var(--green),var(--cyan));content:""}
+
+/* ---------- admisión ---------- */
+.admit{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:start}
+.weights{display:grid;gap:10px;margin:16px 0 0}
+.weight{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;font-size:.9rem}
+.weight b{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:.86rem}
+.bar{grid-column:1 / -1;height:7px;border-radius:999px;background:var(--surface-2);overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--cyan))}
+.cost-table{width:100%;border-collapse:collapse;margin-top:4px;font-size:.9rem}
+.cost-table th,.cost-table td{padding:10px 4px;text-align:left;border-bottom:1px solid var(--line)}
+.cost-table td:last-child,.cost-table th:last-child{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:.85rem}
+.cost-table tr:last-child td{border-bottom:0;font-weight:900;color:var(--green)}
+.cost-table thead th{color:var(--muted);font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+
+/* ---------- diagrama ---------- */
+figure{margin:0}
+.figure-scroll{
+  overflow-x:auto;padding:18px;border:1px solid var(--line);border-radius:10px;
+  background:var(--surface-soft);box-shadow:var(--shadow-sm);
+}
+.figure-scroll svg{display:block;width:100%;min-width:920px;height:auto}
+figcaption{margin-top:14px;color:var(--muted);font-size:.87rem;line-height:1.55}
+
+/* ---------- asignaturas ---------- */
+.course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.course-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.course{
+  display:flex;flex-direction:column;gap:11px;padding:21px;
+  border:1px solid var(--line);border-left:3px solid var(--accent,var(--green));
+  border-radius:9px;background:var(--surface-soft);box-shadow:var(--shadow-sm);
+}
+.course-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.course h3{margin:0;font-size:1.05rem;line-height:1.24;letter-spacing:-.012em}
+.credits{
+  flex:none;padding:3px 9px;border-radius:999px;background:var(--accent-soft,var(--green-soft));
+  color:var(--accent,var(--green));font-family:var(--mono);font-size:.74rem;font-weight:600;
+}
+.course p{margin:0;font-size:.91rem;line-height:1.55}
+.course .tools{margin:0;color:var(--muted);font-family:var(--mono);font-size:.75rem;line-height:1.5}
+.role{
+  margin:auto 0 0;padding-top:11px;border-top:1px solid var(--line);
+  font-size:.84rem;line-height:1.5;color:var(--body);
+}
+.role b{color:var(--accent,var(--green));font-weight:800}
+.c-green{--accent:var(--green);--accent-soft:var(--green-soft)}
+.c-cyan{--accent:var(--cyan);--accent-soft:var(--cyan-soft)}
+.c-amber{--accent:var(--amber);--accent-soft:var(--amber-soft)}
+.c-coral{--accent:var(--coral);--accent-soft:var(--coral-soft)}
+.course-grid.three .span-all{grid-column:1 / -1}
+
+/* ---------- perfiles ---------- */
+.profile-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.profile-table th,.profile-table td{padding:13px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.profile-table thead th{color:var(--muted);font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+.profile-table tbody td:first-child{font-weight:800;width:30%}
+.profile-table td small{display:block;margin-top:3px;color:var(--muted);font-family:var(--mono);font-size:.74rem}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface-soft);padding:6px 18px;box-shadow:var(--shadow-sm)}
+
+/* ---------- diferenciador ---------- */
+.diff-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.diff{padding:21px;border:1px solid var(--line);border-radius:9px;background:var(--surface-soft);box-shadow:var(--shadow-sm)}
+.diff .n{display:block;margin-bottom:10px;color:var(--coral);font-family:var(--mono);font-size:.78rem;font-weight:600}
+.diff h3{margin-bottom:8px;font-size:1.02rem;letter-spacing:-.01em}
+.diff p{margin:0;font-size:.89rem;line-height:1.54}
+
+/* ---------- contacto ---------- */
+.contact{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center;
+  padding:34px;border:1px solid var(--line);border-radius:12px;
+  background:var(--surface-soft);box-shadow:var(--shadow);
+}
+.contact h2{margin-bottom:12px;font-size:2rem;line-height:1.08;letter-spacing:-.025em}
+.contact p{margin-bottom:0}
+.contact-list{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.contact-list li{display:grid;gap:3px;font-size:.9rem}
+.contact-list b{color:var(--muted);font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+.contact-list a{color:var(--cyan);font-weight:700;text-decoration:none;word-break:break-word}
+.contact-list a:hover{text-decoration:underline}
+
+footer{padding:40px 0 56px;border-top:1px solid var(--line);margin-top:56px}
+footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
+
+@media (max-width:960px){
+  .hero-inner,.split,.admit,.contact{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .course-grid,.course-grid.three,.diff-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2.75rem}
+  .section-heading h2{font-size:1.9rem}
+  .section{padding:52px 0}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#top">
+    <span class="mark">AA<br>IA</span>
+    <span>Especialización en Aprendizaje Automático mediante IA
+      <small>UNAL · Sede Manizales · Ingeniería y Arquitectura</small></span>
+  </a>
+  <nav class="head-nav" aria-label="Secciones">
+    <a href="#programa">El programa</a>
+    <a href="#admision">Admisión</a>
+    <a href="#plan">Plan de estudios</a>
+    <a href="#perfiles">Perfiles</a>
+    <a href="#diferenciador">Por qué esta</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="section hero">
+  <div class="hero-inner">
+    <div>
+      <p class="eyebrow">Posgrado · SNIES 118852</p>
+      <h1>Especialización en Aprendizaje Automático mediante IA</h1>
+      <p class="lede">Un año para aprender a llevar un modelo desde los datos crudos hasta un sistema
+        que funciona en producción — en la nube, en un servidor propio o en un dispositivo embebido.
+        Con los fundamentos matemáticos explícitos, no asumidos.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#admision">Cómo ingresar</a>
+        <a class="btn btn-ghost" href="#plan">Ver el plan de estudios</a>
+      </div>
+      <dl class="facts">
+        <div class="fact"><dt>Título</dt><dd>Especialista</dd></div>
+        <div class="fact"><dt>Duración</dt><dd>2 <span class="u">semestres</span></dd></div>
+        <div class="fact"><dt>Créditos</dt><dd>28 <span class="u">16 + 12</span></dd></div>
+        <div class="fact"><dt>Campus</dt><dd>La Nubia</dd></div>
+      </dl>
+    </div>
+
+    <aside class="status-card">
+      <h3>Datos del registro</h3>
+      <dl>
+        <div class="status-row"><dt>Código SNIES</dt><dd>118852</dd></div>
+        <div class="status-row"><dt>Sede</dt><dd>Manizales</dd></div>
+        <div class="status-row"><dt>Facultad</dt><dd>Ing. y Arquitectura</dd></div>
+        <div class="status-row"><dt>Departamento</dt><dd>Ing. Eléctrica, Electrónica y Computación</dd></div>
+        <div class="status-row"><dt>Modalidad</dt><dd>Presencial mediada por TIC</dd></div>
+        <div class="status-row"><dt>Creación</dt><dd>Acuerdo 010 de 2025</dd></div>
+        <div class="status-row"><dt>Plan vigente</dt><dd>Acuerdo 013 de 2025</dd></div>
+      </dl>
+      <p class="status-note"><strong>Primera cohorte: 2027-I.</strong> Las convocatorias de admisión
+        se abren desde el segundo periodo de 2026 (Acuerdo 020 de 2026).</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ EL PROGRAMA ============ -->
+<section class="section" id="programa">
+  <div class="section-heading">
+    <p class="eyebrow">El programa</p>
+    <h2>Colombia adopta IA más rápido de lo que forma gente capaz de sostenerla</h2>
+    <p>El 42 % de las empresas colombianas ya incorporó inteligencia artificial, pero solo el 21 %
+      se considera preparada para operarla. El cuello de botella no está en entrenar modelos: está
+      en ponerlos a funcionar, evaluarlos y mantenerlos. Esta especialización se diseñó para ese hueco.</p>
+  </div>
+
+  <div class="split">
+    <article class="panel">
+      <h3>Objetivo</h3>
+      <p>Formar especialistas capaces de diseñar, implementar y gestionar soluciones basadas en
+        aprendizaje automático mediante inteligencia artificial, aplicadas a problemas reales en
+        ingeniería, industria, sector público y académico, promoviendo el desarrollo ético,
+        responsable e innovador de estas tecnologías.</p>
+      <ul class="ticklist">
+        <li>Comprender los fundamentos del aprendizaje supervisado, no supervisado y profundo.</li>
+        <li>Aplicar técnicas de IA para la toma de decisiones en sistemas complejos.</li>
+        <li>Integrar soluciones de IA en entornos empresariales, industriales y de gobierno digital.</li>
+        <li>Promover el uso responsable de la IA conforme a principios éticos y normativos.</li>
+      </ul>
+    </article>
+
+    <article class="panel">
+      <h3>¿A quién está dirigida?</h3>
+      <p>A profesionales en <b>ingeniería, matemáticas, estadística, ciencias de la computación y
+        afines</b> interesados en aplicar métodos de aprendizaje automático e inteligencia artificial
+        en entornos productivos y de investigación.</p>
+      <h3 style="margin-top:22px">Qué sabrá hacer al graduarse</h3>
+      <p>El especialista sale con competencias avanzadas en el diseño, implementación y evaluación
+        de modelos y sistemas inteligentes para sectores productivos y de gestión pública: análisis
+        de datos, optimización de procesos, desarrollo de soluciones basadas en IA y uso ético y
+        responsable de estas tecnologías.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ ADMISIÓN ============ -->
+<section class="section" id="admision">
+  <div class="section-heading">
+    <p class="eyebrow">Admisión y costos</p>
+    <h2>Cómo se ingresa</h2>
+    <p>El proceso está reglamentado por el Acuerdo 020 de 2026 del Consejo de Facultad de Ingeniería
+      y Arquitectura. No hay prueba de conocimientos y no se exige acreditación de idioma extranjero.</p>
+  </div>
+
+  <div class="admit">
+    <article class="panel">
+      <h3>Criterios de evaluación</h3>
+      <div class="weights">
+        <div class="weight"><span>Evaluación de la hoja de vida <br><small style="color:var(--muted)">a criterio del Comité Asesor</small></span><b>50 %</b>
+          <span class="bar"><i style="width:50%"></i></span></div>
+        <div class="weight"><span>Entrevista individual</span><b>50 %</b>
+          <span class="bar"><i style="width:50%"></i></span></div>
+      </div>
+      <ul class="ticklist" style="margin-top:20px">
+        <li><b>Ningún componente es eliminatorio.</b></li>
+        <li>Puntaje mínimo de admisión: <b>3,0 sobre 5,0</b>.</li>
+        <li>No se exige acreditación de idioma extranjero.</li>
+        <li>Los cupos se fijan en cada convocatoria por el Consejo de Facultad.</li>
+      </ul>
+    </article>
+
+    <article class="panel">
+      <h3>Costos por periodo académico</h3>
+      <table class="cost-table">
+        <thead><tr><th>Concepto</th><th>Puntos</th></tr></thead>
+        <tbody>
+          <tr><td>Derechos académicos <small style="color:var(--muted)">Acuerdo 019 de 2026</small></td><td>125</td></tr>
+          <tr><td>Derechos administrativos</td><td>30</td></tr>
+          <tr><td>Bienestar universitario</td><td>10</td></tr>
+          <tr><td>Total</td><td>165</td></tr>
+        </tbody>
+      </table>
+      <p style="margin:16px 0 0;font-size:.85rem;color:var(--muted);line-height:1.55">
+        La matrícula se liquida en puntos; el valor del punto lo fija la Universidad cada año.
+        Con el valor de referencia de 2025 ($47.450), 165 puntos equivalen a
+        <b style="font-family:var(--mono);color:var(--body)">≈ $7.829.250</b> por periodo, más la
+        póliza estudiantil. Consulte el valor vigente al momento de la convocatoria.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ PLAN DE ESTUDIOS ============ -->
+<section class="section" id="plan">
+  <div class="section-heading">
+    <p class="eyebrow">Plan de estudios · 28 créditos</p>
+    <h2>Cuatro etapas, del dato crudo al sistema en operación</h2>
+    <p>El núcleo obligatorio (16 créditos) es una cadena: cada asignatura entrega el insumo de la
+      siguiente. Las elegibles (12 créditos, cuatro de siete) no son adornos — entran en un punto
+      concreto de esa cadena, y el diagrama muestra dónde.</p>
+  </div>
+
+  <figure>
+    <div class="figure-scroll">
+      <svg viewBox="0 0 1280 480" role="img"
+           aria-label="Diagrama de flujo del plan de estudios: cuatro asignaturas obligatorias encadenadas desde ingeniería de datos hasta despliegue de modelos y agentes, con las asignaturas elegibles alimentando las etapas de modelado y de despliegue, y explicabilidad y ética como criterio transversal.">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+          </marker>
+          <marker id="ahA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--amber)"/>
+          </marker>
+          <marker id="ahC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--cyan)"/>
+          </marker>
+        </defs>
+
+        <!-- banda transversal: explicabilidad y ética -->
+        <rect x="20" y="26" width="1040" height="40" rx="8"
+              fill="var(--coral-soft)" stroke="var(--coral)" stroke-width="1"/>
+        <text x="40" y="51" font-family="Inter,sans-serif" font-size="14" font-weight="800" fill="var(--coral)">
+          Explicabilidad y Ética en IA · 3C</text>
+        <text x="290" y="51" font-family="Inter,sans-serif" font-size="13" fill="var(--muted)">
+          criterio transversal — se aplica sobre las cuatro etapas</text>
+        <g stroke="var(--coral)" stroke-width="1" stroke-dasharray="3 3" opacity=".65">
+          <line x1="120" y1="66" x2="120" y2="88"/>
+          <line x1="400" y1="66" x2="400" y2="88"/>
+          <line x1="680" y1="66" x2="680" y2="88"/>
+          <line x1="960" y1="66" x2="960" y2="88"/>
+        </g>
+
+        <!-- núcleo obligatorio -->
+        <g fill="var(--green-soft)" stroke="var(--green)" stroke-width="1.5">
+          <rect x="20"  y="90" width="200" height="104" rx="9"/>
+          <rect x="300" y="90" width="200" height="104" rx="9"/>
+          <rect x="580" y="90" width="200" height="104" rx="9"/>
+          <rect x="860" y="90" width="200" height="104" rx="9"/>
+        </g>
+        <g font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="var(--green)">
+          <text x="34" y="112">01 · 4C</text>
+          <text x="314" y="112">02 · 4C</text>
+          <text x="594" y="112">03 · 4C</text>
+          <text x="874" y="112">04 · 4C</text>
+        </g>
+        <g font-family="Inter,sans-serif" font-size="14" font-weight="800" fill="currentColor">
+          <text x="34" y="136">Fundamentos de</text>
+          <text x="34" y="154">Ingeniería de Datos</text>
+          <text x="34" y="172">y Big Data</text>
+
+          <text x="314" y="136">Introducción al</text>
+          <text x="314" y="154">Aprendizaje</text>
+          <text x="314" y="172">de Máquina</text>
+
+          <text x="594" y="136">Redes Neuronales</text>
+          <text x="594" y="154">y Aprendizaje</text>
+          <text x="594" y="172">Profundo</text>
+
+          <text x="874" y="136">Despliegue de</text>
+          <text x="874" y="154">Modelos y Agentes</text>
+          <text x="874" y="172">Inteligentes</text>
+        </g>
+
+        <!-- flechas del núcleo -->
+        <g stroke="currentColor" stroke-width="1.6" marker-end="url(#ah)" fill="none">
+          <line x1="222" y1="142" x2="296" y2="142"/>
+          <line x1="502" y1="142" x2="576" y2="142"/>
+          <line x1="782" y1="142" x2="856" y2="142"/>
+        </g>
+        <g font-family="Inter,sans-serif" font-size="11.5" fill="var(--muted)" text-anchor="middle">
+          <text x="259" y="126">datos limpios</text>
+          <text x="259" y="166">y pipelines</text>
+          <text x="539" y="126">modelos base</text>
+          <text x="539" y="166">y métricas</text>
+          <text x="819" y="126">transformers</text>
+          <text x="819" y="166">y LLM</text>
+        </g>
+
+        <!-- salida -->
+        <line x1="1062" y1="142" x2="1104" y2="142" stroke="var(--cyan)" stroke-width="1.6" marker-end="url(#ahC)"/>
+        <rect x="1108" y="104" width="156" height="76" rx="9" fill="var(--cyan-soft)" stroke="var(--cyan)" stroke-width="1.5"/>
+        <text x="1186" y="134" font-family="Inter,sans-serif" font-size="13.5" font-weight="800" fill="var(--cyan)" text-anchor="middle">Sistema de IA</text>
+        <text x="1186" y="152" font-family="Inter,sans-serif" font-size="13.5" font-weight="800" fill="var(--cyan)" text-anchor="middle">en operación</text>
+        <text x="1186" y="170" font-family="Inter,sans-serif" font-size="11" fill="var(--muted)" text-anchor="middle">nube · local · borde</text>
+
+        <!-- etiqueta elegibles -->
+        <text x="20" y="298" font-family="Inter,sans-serif" font-size="12" font-weight="800"
+              letter-spacing="1.1" fill="var(--amber)">COMPONENTE ELEGIBLE · 12C — SE CURSAN 4 DE 7</text>
+
+        <!-- colector hacia el modelado -->
+        <g stroke="var(--amber)" stroke-width="1.4" stroke-dasharray="5 4" fill="none">
+          <line x1="118" y1="368" x2="118" y2="330"/>
+          <line x1="327" y1="368" x2="327" y2="330"/>
+          <line x1="536" y1="368" x2="536" y2="330"/>
+          <line x1="745" y1="368" x2="745" y2="330"/>
+          <line x1="954" y1="368" x2="954" y2="330"/>
+          <line x1="118" y1="330" x2="954" y2="330"/>
+          <line x1="400" y1="330" x2="400" y2="200" marker-end="url(#ahA)"/>
+          <line x1="680" y1="330" x2="680" y2="200" marker-end="url(#ahA)"/>
+        </g>
+        <text x="259" y="322" font-family="Inter,sans-serif" font-size="11.5" fill="var(--amber)" text-anchor="middle">
+          profundizan el modelado</text>
+
+        <!-- ruta IoT hacia el despliegue -->
+        <g stroke="var(--amber)" stroke-width="1.4" stroke-dasharray="5 4" fill="none">
+          <path d="M 1163 368 L 1163 232 L 960 232 L 960 200" marker-end="url(#ahA)"/>
+        </g>
+        <text x="1148" y="256" font-family="Inter,sans-serif" font-size="11.5" fill="var(--amber)" text-anchor="end">
+          hardware, sensórica y tiempo real</text>
+
+        <!-- cajas elegibles -->
+        <g fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="1.2">
+          <rect x="20"   y="368" width="196" height="72" rx="8"/>
+          <rect x="229"  y="368" width="196" height="72" rx="8"/>
+          <rect x="438"  y="368" width="196" height="72" rx="8"/>
+          <rect x="647"  y="368" width="196" height="72" rx="8"/>
+          <rect x="856"  y="368" width="196" height="72" rx="8"/>
+          <rect x="1065" y="368" width="196" height="72" rx="8"/>
+        </g>
+        <g font-family="Inter,sans-serif" font-size="12.5" font-weight="700" fill="currentColor" text-anchor="middle">
+          <text x="118"  y="396">Fundamentos en</text><text x="118"  y="412">Visión por</text><text x="118" y="428">Computador</text>
+          <text x="327"  y="396">Procesamiento de</text><text x="327"  y="412">Lenguaje Natural</text><text x="327" y="428" font-size="11" fill="var(--muted)">RAG · agentes</text>
+          <text x="536"  y="404">Aprendizaje</text><text x="536"  y="420">por Refuerzo</text>
+          <text x="745"  y="404">Física e IA</text><text x="745" y="420" font-size="11" fill="var(--muted)">PINNs</text>
+          <text x="954"  y="396">Principios en</text><text x="954"  y="412">Aprendizaje de</text><text x="954" y="428">Máquina Cuántico</text>
+          <text x="1163" y="404">IoT Cognitivo</text><text x="1163" y="420" font-size="11" fill="var(--muted)">embebidos · SDR</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Las cuatro obligatorias forman una cadena de producción: los datos se preparan, se
+      modelan, se profundizan y se despliegan. Cinco elegibles entran en la etapa de modelado
+      —eligen dominio y modalidad—, <b>IoT Cognitivo</b> entra directamente en la etapa de despliegue
+      aportando hardware y tiempo real, y <b>Explicabilidad y Ética</b> se aplica sobre las cuatro.
+      Distribución por semestre: 3 obligatorias + 1 elegible en el primero; 1 obligatoria + 3
+      elegibles en el segundo.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ OBLIGATORIAS ============ -->
+<section class="section">
+  <div class="section-heading">
+    <p class="eyebrow">Componente obligatorio · 16 créditos</p>
+    <h2>Las cuatro que todos cursan</h2>
+  </div>
+
+  <div class="course-grid">
+    <article class="course c-green">
+      <div class="course-top"><h3>Fundamentos de Ingeniería de Datos y Big Data</h3><span class="credits">4C</span></div>
+      <p>Adquisición, limpieza, almacenamiento y gobierno de datos. Bases SQL y NoSQL, pipelines y
+        procesamiento de grandes volúmenes en entornos distribuidos y en la nube.</p>
+      <p class="tools">Hadoop · Spark · NoSQL</p>
+      <p class="role"><b>Data / AI Engineer.</b> Es la capa que alimenta todo lo demás: sin datos
+        confiables, ningún modelo posterior es defendible.</p>
+    </article>
+
+    <article class="course c-green">
+      <div class="course-top"><h3>Introducción al Aprendizaje de Máquina</h3><span class="credits">4C</span></div>
+      <p>Fundamentos matemáticos y estadísticos, modelos supervisados y no supervisados,
+        regularización, validación, selección de modelos e interpretabilidad de métricas.</p>
+      <p class="tools">Python · scikit-learn · pandas</p>
+      <p class="role"><b>El criterio, no la receta.</b> Aquí se aprende a decidir si un modelo
+        sirve — la base sobre la que se construye cualquier práctica seria de evaluación.</p>
+    </article>
+
+    <article class="course c-green">
+      <div class="course-top"><h3>Redes Neuronales y Aprendizaje Profundo</h3><span class="credits">4C</span></div>
+      <p>Perceptrón multicapa, convolucionales y recurrentes; mecanismos de atención y
+        transformadores; fundamentos de modelos de lenguaje de gran escala; entrenamiento distribuido.</p>
+      <p class="tools">PyTorch · TensorFlow</p>
+      <p class="role"><b>AI Engineer.</b> Entender por dentro los modelos que después se integran:
+        la diferencia entre consumir una API y saber qué está fallando.</p>
+    </article>
+
+    <article class="course c-cyan">
+      <div class="course-top"><h3>Despliegue de Modelos y Agentes Inteligentes</h3><span class="credits">4C</span></div>
+      <p>MLOps y ciclo de vida en producción, servir modelos <b>en la nube y en el borde</b>,
+        integración de agentes conversacionales e inteligentes, y aspectos éticos y regulatorios
+        de la IA aplicada.</p>
+      <p class="tools">contenedores · servicios en nube · frameworks de agentes</p>
+      <p class="role"><b>Forward Deployed Engineer.</b> El corazón del rol: llevar el prototipo a
+        un sistema que otra gente usa y que hay que mantener funcionando.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ ELEGIBLES ============ -->
+<section class="section">
+  <div class="section-heading">
+    <p class="eyebrow">Componente elegible · 12 créditos</p>
+    <h2>Siete caminos, cuatro elecciones</h2>
+    <p>Cada elegible vale 3 créditos. También es posible cursar elegibles de otros posgrados de la
+      Universidad Nacional, con orientación del tutor, si son coherentes con la trayectoria de
+      formación.</p>
+  </div>
+
+  <div class="course-grid three">
+    <article class="course c-amber">
+      <div class="course-top"><h3>Procesamiento de Lenguaje Natural</h3><span class="credits">3C</span></div>
+      <p>Del texto al agente: representaciones y atención, arquitecturas encoder / decoder, modelos
+        de lenguaje, <b>RAG y Agentic RAG</b>, y agentes construidos sobre LLM, con despliegue
+        local y en nube.</p>
+      <p class="tools">Python · Colab / Kaggle · ejecución local</p>
+      <p class="role"><b>Applied AI / LLM Engineer.</b> La asignatura más cercana al stack que hoy
+        definen las vacantes de IA aplicada.</p>
+    </article>
+
+    <article class="course c-amber">
+      <div class="course-top"><h3>IoT Cognitivo</h3><span class="credits">3C</span></div>
+      <p>IoT e inteligencia cognitiva, aprendizaje automático sobre dispositivos y entornos
+        distribuidos, radio cognitiva y gestión dinámica del espectro en contextos industriales,
+        energéticos y urbanos.</p>
+      <p class="tools">dispositivos embebidos · SDR · PyTorch</p>
+      <p class="role"><b>Edge AI / sistemas ciberfísicos.</b> Donde la IA deja de vivir en un
+        servidor y pasa a un aparato con restricciones reales.</p>
+    </article>
+
+    <article class="course c-amber">
+      <div class="course-top"><h3>Fundamentos en Visión por Computador</h3><span class="credits">3C</span></div>
+      <p>Desde el principio físico del sensor y el modelamiento matemático hasta las redes
+        convolucionales, los mecanismos de atención y los <i>visual transformers</i>, cerrando con
+        despliegue y proyecto aplicado.</p>
+      <p class="tools">Python · Docker · Colab / Kaggle</p>
+      <p class="role"><b>Computer Vision Engineer.</b> Incluye la parte que suele faltar: empaquetar
+        y desplegar el modelo, no solo entrenarlo.</p>
+    </article>
+
+    <article class="course c-amber">
+      <div class="course-top"><h3>Aprendizaje por Refuerzo</h3><span class="credits">3C</span></div>
+      <p>Agentes, entornos, recompensas y políticas; métodos <i>value-based</i> y <i>policy-based</i>;
+        Deep Q-Learning y Actor-Critic; aplicaciones en robótica, juegos y optimización de recursos.</p>
+      <p class="tools">Gym · PyTorch / TensorFlow</p>
+      <p class="role"><b>Control autónomo y optimización.</b> La base formal de los agentes que
+        deciden secuencias de acciones, no respuestas aisladas.</p>
+    </article>
+
+    <article class="course c-amber">
+      <div class="course-top"><h3>Física e IA</h3><span class="credits">3C</span></div>
+      <p>Simulación numérica de sistemas físicos, aprendizaje automático sobre datos experimentales
+        y de simulación, y <b>redes informadas por física (PINNs)</b>, con aplicaciones en
+        materiales, energía y astrofísica.</p>
+      <p class="tools">Python · Jupyter / Colab</p>
+      <p class="role"><b>Scientific ML.</b> Modelos que respetan las leyes del dominio en vez de
+        aprenderlas por fuerza bruta — clave en energía e industria.</p>
+    </article>
+
+    <article class="course c-amber">
+      <div class="course-top"><h3>Principios en Aprendizaje de Máquina Cuántico</h3><span class="credits">3C</span></div>
+      <p>Qubits, puertas y medición; codificación de datos clásicos en estados cuánticos; circuitos
+        para clasificación y regresión; modelos híbridos cuántico-clásicos y sus límites reales.</p>
+      <p class="tools">Qiskit · PennyLane</p>
+      <p class="role"><b>Frontera.</b> No la hay en ninguna otra especialización en IA del país.</p>
+    </article>
+
+    <article class="course c-coral span-all">
+      <div class="course-top"><h3>Explicabilidad y Ética en IA</h3><span class="credits">3C</span></div>
+      <p>Interpretabilidad y explicabilidad de modelos con LIME, SHAP y <i>saliency maps</i>;
+        sesgos algorítmicos, equidad y transparencia; marcos regulatorios y estándares
+        internacionales; responsabilidad social en contextos sensibles.</p>
+      <p class="role"><b>AI Governance.</b> Dejó de ser un tema de comité: es cada vez más un
+        requisito contractual para desplegar IA en banca, salud y sector público. Por eso en el
+        diagrama atraviesa las cuatro etapas en lugar de ocupar un casillero.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ LOCAL Y EMBEBIDOS ============ -->
+<section class="section">
+  <div class="section-heading">
+    <p class="eyebrow">Capacidad transversal</p>
+    <h2>Que funcione sin depender de una nube ajena</h2>
+    <p>Buena parte de la formación en IA asume una tarjeta de crédito y una API remota. Aquí no:
+      el programa trabaja de forma explícita la ejecución local, la reproducibilidad y la inferencia
+      sobre hardware con restricciones. Es una competencia con demanda real en industria,
+      manufactura, energía y sector público — donde el dato muchas veces no puede salir.</p>
+  </div>
+
+  <div class="course-grid">
+    <article class="panel">
+      <h3>Trabajo local y reproducible</h3>
+      <ul class="ticklist">
+        <li><b>Ejecución local de modelos de lenguaje</b> — <i>Procesamiento de Lenguaje Natural</i>
+          cubre despliegue local además del despliegue en nube.</li>
+        <li><b>Contenedores</b> — empaquetado y reproducibilidad con Docker en
+          <i>Visión por Computador</i> y en <i>Despliegue</i>.</li>
+        <li><b>Stack sin licenciamiento</b> — todo el programa corre sobre Python y herramientas
+          abiertas: PyTorch, TensorFlow, scikit-learn, Hugging Face, GitHub.</li>
+        <li><b>Infraestructura propia</b> — laboratorio de inteligencia artificial y sala de
+          computación intensiva en el Campus La Nubia.</li>
+      </ul>
+    </article>
+
+    <article class="panel">
+      <h3>Sistemas embebidos y el borde</h3>
+      <ul class="ticklist">
+        <li><b>Inferencia en el borde</b> — <i>Despliegue de Modelos y Agentes Inteligentes</i>
+          trata explícitamente servir modelos en la nube <i>y en el borde</i>.</li>
+        <li><b>Dispositivos embebidos</b> — <i>IoT Cognitivo</i> desarrolla miniproyectos sobre
+          hardware embebido real.</li>
+        <li><b>Radio definida por software (SDR)</b> y radio cognitiva, con gestión dinámica del
+          espectro.</li>
+        <li><b>Restricciones de tiempo real</b> en contextos industriales, energéticos y urbanos.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ============ PERFILES ============ -->
+<section class="section" id="perfiles">
+  <div class="section-heading">
+    <p class="eyebrow">Salida profesional</p>
+    <h2>Cómo se conecta con los perfiles que hoy se contratan</h2>
+    <p>El <b>Forward Deployed Engineer</b> — un ingeniero que se integra con el cliente y es dueño
+      del sistema de IA de extremo a extremo, desde dimensionarlo hasta mantenerlo operando— pasó
+      de ser una rareza a un modelo estándar de la industria. Su stack característico (pipelines,
+      agentes, despliegue, gobernanza) es también el eje de este plan de estudios.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="profile-table">
+      <thead>
+        <tr><th>Competencia del perfil</th><th>Dónde se trabaja</th><th>Componente</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Pipelines de datos en producción<small>Data / AI Engineer</small></td>
+            <td>Fundamentos de Ingeniería de Datos y Big Data</td><td>Obligatoria · 4C</td></tr>
+        <tr><td>Fundamentos de ML y evaluación<small>AI Engineer</small></td>
+            <td>Introducción al Aprendizaje de Máquina</td><td>Obligatoria · 4C</td></tr>
+        <tr><td>Modelos profundos, transformers y LLM<small>AI / LLM Engineer</small></td>
+            <td>Redes Neuronales y Aprendizaje Profundo</td><td>Obligatoria · 4C</td></tr>
+        <tr><td>MLOps y despliegue en producción<small>Forward Deployed Engineer</small></td>
+            <td>Despliegue de Modelos y Agentes Inteligentes</td><td>Obligatoria · 4C</td></tr>
+        <tr><td>Desarrollo de agentes<small>Applied AI Engineer</small></td>
+            <td>Despliegue de Modelos y Agentes Inteligentes · Procesamiento de Lenguaje Natural</td>
+            <td>Obligatoria + elegible</td></tr>
+        <tr><td>Pipelines RAG<small>Applied AI Engineer</small></td>
+            <td>Procesamiento de Lenguaje Natural — incluye RAG y Agentic RAG</td><td>Elegible · 3C</td></tr>
+        <tr><td>Inferencia en el borde y embebidos<small>Edge AI Engineer</small></td>
+            <td>IoT Cognitivo · Despliegue de Modelos y Agentes Inteligentes</td><td>Elegible + obligatoria</td></tr>
+        <tr><td>Gobernanza, explicabilidad y cumplimiento<small>Responsible AI</small></td>
+            <td>Explicabilidad y Ética en IA · Despliegue (unidad regulatoria)</td><td>Elegible + obligatoria</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIADOR ============ -->
+<section class="section" id="diferenciador">
+  <div class="section-heading">
+    <p class="eyebrow">Factor diferenciador</p>
+    <h2>Qué tiene esta que no tienen las otras</h2>
+    <p>Frente a la oferta nacional en inteligencia artificial, estos son los puntos donde el
+      programa se separa de forma verificable.</p>
+  </div>
+
+  <div class="diff-grid">
+    <article class="diff">
+      <span class="n">01</span>
+      <h3>El despliegue es obligatorio, no opcional</h3>
+      <p>La mayoría de especializaciones del país terminan en el entrenamiento del modelo. Aquí
+        <i>Despliegue de Modelos y Agentes Inteligentes</i> está en el núcleo: nadie se gradúa sin
+        haber puesto un sistema a funcionar.</p>
+    </article>
+
+    <article class="diff">
+      <span class="n">02</span>
+      <h3>Fundamentos explícitos, no asumidos</h3>
+      <p>Otras especializaciones dan por sabidas las bases matemáticas, estadísticas y
+        probabilísticas. Este plan las trabaja dentro del programa, lo que abre la puerta a
+        perfiles que vienen de otras ingenierías.</p>
+    </article>
+
+    <article class="diff">
+      <span class="n">03</span>
+      <h3>Software y hardware en el mismo plan</h3>
+      <p>La combinación de MLOps, nube y borde con IoT cognitivo, sensórica, SDR y tiempo real es
+        poco común: cubre el caso en que la IA tiene que correr en un aparato, no en un servidor.</p>
+    </article>
+
+    <article class="diff">
+      <span class="n">04</span>
+      <h3>Física e IA y aprendizaje de máquina cuántico</h3>
+      <p>Dos asignaturas que no aparecen en ninguna otra especialización en IA del país: modelos
+        informados por física (PINNs) y fundamentos de QML con Qiskit y PennyLane.</p>
+    </article>
+
+    <article class="diff">
+      <span class="n">05</span>
+      <h3>Ética y explicabilidad como asignatura propia</h3>
+      <p>No un capítulo suelto: LIME, SHAP, sesgos, equidad y marcos regulatorios internacionales
+        con peso curricular propio y aplicación sobre todas las etapas.</p>
+    </article>
+
+    <article class="diff">
+      <span class="n">06</span>
+      <h3>Respaldo investigativo verificable</h3>
+      <p>Dos grupos <b>A1 de MinCiencias</b> y una trayectoria de posgrado del Departamento que
+        arranca en 1991 con el Doctorado en Ingeniería Automática.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section class="section" id="contacto">
+  <div class="contact">
+    <div>
+      <h2>¿Le interesa? Escriba antes de la convocatoria</h2>
+      <p>Las convocatorias de admisión se abren desde el segundo periodo académico de 2026 y la
+        primera cohorte inicia en 2027-I. Escribir con anticipación permite resolver dudas sobre
+        el perfil de ingreso y la nivelación en programación y matemáticas.</p>
+    </div>
+    <ul class="contact-list">
+      <li><b>Dirección del programa</b><span>Andrés Marino Álvarez Meza, Ph.D.</span></li>
+      <li><b>Correo</b><a href="mailto:amalvarezme@unal.edu.co">amalvarezme@unal.edu.co</a></li>
+      <li><b>Campus</b><span>La Nubia · Km 7 vía al Magdalena, Manizales</span></li>
+      <li><b>Unidad</b><span>Departamento de Ingeniería Eléctrica, Electrónica y Computación</span></li>
+      <li><b>Laboratorio</b><a href="https://amalvarezme.github.io/LaboratorioIA_UNAL/">Laboratorio de Inteligencia Artificial — LIA-UNAL</a></li>
+    </ul>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p><b>Universidad Nacional de Colombia — Sede Manizales.</b> Facultad de Ingeniería y Arquitectura ·
+    Departamento de Ingeniería Eléctrica, Electrónica y Computación · Área Curricular de Eléctrica,
+    Electrónica, Automatización y Telecomunicaciones.</p>
+  <p>Información construida a partir del registro oficial del programa (SNIES 118852) y de los
+    Acuerdos 010 y 013 de 2025 y 008, 019 y 020 de 2026, publicados en el Régimen Legal de la
+    Universidad Nacional de Colombia.</p>
+  <p>Los valores de matrícula se liquidan en puntos y el valor del punto es fijado anualmente por
+    la Universidad. Verifique cupos, fechas y costos vigentes en la convocatoria correspondiente.</p>
+</footer>
+
+</main>
+</body>
+</html>
