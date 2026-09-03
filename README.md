@@ -21,7 +21,8 @@ Página informativa para aspirantes al programa de posgrado de la **Universidad 
 - Ficha del registro oficial, objetivos y perfiles de ingreso y egreso.
 - Proceso de admisión y estructura de costos en puntos.
 - **Diagrama de flujo del plan de estudios**: las cuatro obligatorias como cadena de producción (datos → modelo → profundización → despliegue), con las elegibles conectadas al punto de la cadena donde realmente entran.
-- Resumen de las 11 asignaturas y su relación con perfiles de *AI engineering* y *forward deployed engineering*.
+- Resumen de las 12 asignaturas y su relación con perfiles de *AI engineering* y *forward deployed engineering*.
+- Sección de desarrollo de software con IA: ciclo de vida con agentes y adaptación del *AI Engineering Skills Map* de DeepLearning.AI.
 - Capacidades de trabajo local y sobre sistemas embebidos.
 - Factor diferenciador frente a la oferta nacional.
 
@@ -44,11 +45,13 @@ Registro del programa: [posgrados.unal.edu.co](https://posgrados.unal.edu.co/pro
 Sitio estático de un solo archivo. Sin build, sin dependencias, sin JavaScript.
 
 ```
-index.html    página completa (HTML + CSS embebido + diagrama en SVG)
+index.html    página completa (HTML + CSS + diagramas SVG + logos en data URI)
 .nojekyll     desactiva el procesamiento Jekyll de GitHub Pages
 ```
 
-Tipografías servidas desde Google Fonts (Inter e IBM Plex Mono). El diseño sigue el sistema visual del [Laboratorio de Inteligencia Artificial — LIA-UNAL](https://amalvarezme.github.io/LaboratorioIA_UNAL/) y se adapta a tema claro y oscuro según la preferencia del visitante.
+El diseño reutiliza el sistema visual del [Laboratorio de Inteligencia Artificial — LIA-UNAL](https://amalvarezme.github.io/LaboratorioIA_UNAL/): misma paleta (`--bg #f4f7f3`, `--green #08784d`, `--cyan #007a9f`, `--amber #a86e00`, `--coral #bf4d35`), mismo fondo de gradientes con retícula de 52 px y misma escala tipográfica. Tema claro único, como la referencia.
+
+Los logos de la UNAL y del laboratorio van embebidos como data URI para que la página siga siendo un único archivo sin dependencias externas.
 
 ### Desarrollo local
 
