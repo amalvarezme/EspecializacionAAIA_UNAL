@@ -239,7 +239,9 @@ details.course .role{margin:0}
 .diff{padding:21px;border:1px solid var(--line);border-radius:9px;background:var(--surface-soft);box-shadow:var(--shadow-sm)}
 .diff .n{display:block;margin-bottom:10px;color:var(--coral);font-family:var(--mono);font-size:.78rem;font-weight:600}
 .diff h3{margin-bottom:8px;font-size:1.02rem}
-.diff p{margin:0;color:var(--body);font-size:.89rem;line-height:1.58}
+.diff-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.diff-list li{position:relative;padding-left:15px;color:var(--body);font-size:.89rem;line-height:1.55}
+.diff-list li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--coral)}
 
 /* ---------- software con IA ---------- */
 .quote{margin:0 0 30px;padding:20px 24px;border:1px solid var(--line);border-left:3px solid var(--coral);border-radius:0 10px 10px 0;background:var(--coral-soft)}
@@ -1054,45 +1056,58 @@ footer p{margin:0 0 6px;color:var(--muted);font-size:.82rem;line-height:1.6}
     <article class="diff">
       <span class="n">01</span>
       <h3>El despliegue es obligatorio, no opcional</h3>
-      <p>La mayoría de especializaciones del país terminan en el entrenamiento del modelo. Aquí
-        <i>Despliegue de Modelos y Agentes Inteligentes</i> está en el núcleo: nadie se gradúa sin
-        haber puesto un sistema a funcionar.</p>
+      <ul class="diff-list">
+        <li>La mayoría de especializaciones del país terminan en el entrenamiento del modelo.</li>
+        <li><i>Despliegue de Modelos y Agentes Inteligentes</i> es obligatoria: nadie se gradúa sin
+          haber puesto un sistema a funcionar.</li>
+      </ul>
     </article>
 
     <article class="diff">
       <span class="n">02</span>
       <h3>Fundamentos explícitos, no asumidos</h3>
-      <p>Otras especializaciones dan por sabidas las bases matemáticas, estadísticas y
-        probabilísticas. Este plan las trabaja dentro del programa, lo que abre la puerta a
-        perfiles que vienen de otras ingenierías.</p>
+      <ul class="diff-list">
+        <li>Las bases matemáticas, estadísticas y probabilísticas se trabajan dentro del programa,
+          no se dan por sabidas.</li>
+        <li>Eso abre la puerta a perfiles que vienen de otras ingenierías.</li>
+      </ul>
     </article>
 
     <article class="diff">
       <span class="n">03</span>
       <h3>Software y hardware en el mismo plan</h3>
-      <p>La combinación de MLOps, nube y borde con IoT cognitivo, sensórica, SDR y tiempo real es
-        poco común: cubre el caso en que la IA tiene que correr en un aparato, no en un servidor.</p>
+      <ul class="diff-list">
+        <li>MLOps, nube y borde junto a IoT cognitivo, sensórica, SDR y tiempo real.</li>
+        <li>Cubre el caso en que la IA tiene que correr en un aparato, no en un servidor.</li>
+      </ul>
     </article>
 
     <article class="diff">
       <span class="n">04</span>
       <h3>Física e IA y aprendizaje de máquina cuántico</h3>
-      <p>Dos asignaturas que no aparecen en ninguna otra especialización en IA del país: modelos
-        informados por física (PINNs) y fundamentos de QML con Qiskit y PennyLane.</p>
+      <ul class="diff-list">
+        <li>Modelos informados por física (PINNs) y fundamentos de QML con Qiskit y PennyLane.</li>
+        <li>Dos asignaturas que no aparecen en ninguna otra especialización en IA del país.</li>
+      </ul>
     </article>
 
     <article class="diff">
       <span class="n">05</span>
       <h3>Ética y explicabilidad como asignatura propia</h3>
-      <p>No un capítulo suelto: LIME, SHAP, sesgos, equidad y marcos regulatorios internacionales
-        con peso curricular propio y aplicación sobre todas las etapas.</p>
+      <ul class="diff-list">
+        <li>LIME, SHAP, sesgos, equidad y marcos regulatorios internacionales, con créditos
+          propios.</li>
+        <li>Se aplica sobre todas las etapas, no como un capítulo suelto.</li>
+      </ul>
     </article>
 
     <article class="diff">
       <span class="n">06</span>
       <h3>Respaldo investigativo verificable</h3>
-      <p>Dos grupos <b>A1 de MinCiencias</b> y una trayectoria de posgrado del Departamento que
-        arranca en 1991 con el Doctorado en Ingeniería Automática.</p>
+      <ul class="diff-list">
+        <li>Dos grupos de investigación <b>A1 de MinCiencias</b>.</li>
+        <li>Posgrados en el Departamento desde 1991, con el Doctorado en Ingeniería Automática.</li>
+      </ul>
     </article>
   </div>
 </section>
